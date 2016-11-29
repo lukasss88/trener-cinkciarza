@@ -6,6 +6,8 @@
   ],
   "description": "",
   "main": "",
-  "license": "MIT"
-
+  "license": "MIT",
+  "dependencies": {
+    "components-font-awesome": "^4.7.0"
+  }
 }

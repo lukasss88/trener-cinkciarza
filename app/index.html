@@ -4,20 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Trener Cinkciarza</title>
-
+    <!-- SIMPLE LINE ICONS STYLE CSS -->
+    <link href="../app/bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="../app/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <!-- CUSTOM STYLE CSS -->
     <link href="styles/main.css" rel="stylesheet"/>
 
 </head>
 <body>
 <div class="container">
-
+    <h1>Trener Cinkciarza</h1>
 </div>
 
+<!-- BUY/SALE CURRENCY SECTION -->
+<div class="container buy-sale">
+    <div class="row">
 
+        <div class="col-md-6">
 
+            <div class="form-group row start-value">
+                <label for="start-number-input" class="col-xs-3 col-form-label">Dostepne srodki</label>
+                <div class="col-xs-3 col-md-offset-3">
+                    <input class="form-control" type="number" value="42" id="start-number-input">
+                </div>
+                <!--<i class="fa fa-usd fa-2x" aria-hidden="true"></i>-->
+                <p class="pln">PLN</p>
+            </div>
 
+            <div class="row second-title">
+                <div class="col-md-4">
+                    <h3>Waluta</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>Kupno</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>Sprzedaż</h3>
+                </div>
+            </div>
 
+            <div class="row currency-state">
+                <div class="col-md-4">
+                    <h4>USD</h4>
+                </div>
+                <div class="col-md-3">
+                    <button class='btn btn-success btn-buy-usd'>Kup</button>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <button class="btn btn-primary">Sprzedaj</button>
+                </div>
+            </div>
+
+            <div class="row currency-state">
+                <div class="col-md-4">
+                    <h4>EUR</h4>
+                </div>
+                <div class="col-md-3">
+                    <button class='btn btn-success'>Kup</button>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <button class="btn btn-primary">Sprzedaj</button>
+                </div>
+            </div>
+
+            <div class="row currency-state">
+                <div class="col-md-4">
+                    <h4>GBP</h4>
+                </div>
+                <div class="col-md-3">
+                    <button class='btn btn-success'>Kup</button>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+                    <button class="btn btn-primary">Sprzedaj</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+
+        </div>
+
+    </div>
+</div>
 
 </body>
 </html>

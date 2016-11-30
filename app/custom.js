@@ -10,7 +10,9 @@ $(document).ready(function () {
     var eurToPln = 4.4302;
     var gbpToPln = 5.2041;
 
-
+    /*=======================================
+     USD BUTTONS SCRIPTS
+     ==================================================*/
 
     $('.btn-sell-usd').on('click', function (event) {
         event.preventDefault();
@@ -23,9 +25,6 @@ $(document).ready(function () {
         else {
             $('#summary-number').val(startValue / plnToUsd);
         }
-
-
-
 
         $('.btn-sell-usd').attr("disabled", true);
         $('.btn-sell-eur').attr("disabled", true);
@@ -55,6 +54,9 @@ $(document).ready(function () {
     });
 
 
+    /*=======================================
+     EURO BUTTONS SCRIPTS
+     ==================================================*/
     $('.btn-sell-eur').on('click', function () {
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
@@ -84,7 +86,6 @@ $(document).ready(function () {
             $('#summary-number').val(startValue * eurToPln);
         }
 
-
         $('.btn-buy-eur').attr("disabled", true);
         $('.btn-sell-eur').removeAttr("disabled");
         $('.btn-sell-usd').removeAttr("disabled");
@@ -94,7 +95,9 @@ $(document).ready(function () {
     });
 
 
-
+    /*=======================================
+     GBP BUTTONS SCRIPTS
+     ==================================================*/
     $('.btn-sell-gbp').on('click', function () {
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
@@ -124,8 +127,6 @@ $(document).ready(function () {
             $('#summary-number').val(startValue * gbpToPln);
         }
 
-
-
         $('.btn-buy-gbp').attr("disabled", true);
         $('.btn-sell-gbp').removeAttr("disabled");
         $('.btn-sell-usd').removeAttr("disabled");
@@ -135,5 +136,21 @@ $(document).ready(function () {
     });
 
 
+    /*=======================================
+     RESET BUTTON SCRIPTS
+     ==================================================*/
+    $(':reset').on('click', function (){
+        $('.btn-buy-usd').attr("disabled", true);
+        $('.btn-buy-eur').attr("disabled", true);
+        $('.btn-buy-gbp').attr("disabled", true);
+        $('.btn-sell-gbp').removeAttr("disabled");
+        $('.btn-sell-usd').removeAttr("disabled");
+        $('.btn-sell-eur').removeAttr("disabled");
+
+        $('#pln').removeClass('pln-icon-show');
+        $('#dollar').removeClass('dollar-icon-show');
+        $('#euro').removeClass('euro-icon-show');
+        $('#pound').removeClass('pound-icon-show');
+    })
 
 });

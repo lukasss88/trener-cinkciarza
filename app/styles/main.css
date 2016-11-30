@@ -14,7 +14,6 @@
 ==================================================*/
 .start-value {
     border: 1px solid gainsboro;
-
 }
 .pln {
     font-size: 20px;
@@ -30,6 +29,12 @@
 }
 .currency-state {
     margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #b4b4b4;
+    border-radius: 6px;
+}
+input {
+    text-align: center;
 }
 .form-control {
     width: 172px;
@@ -37,3 +42,18 @@
 button {
     width: 100%;
 }
+span {
+    display: block;
+    text-align: center;
+}
+
+.dollar-icon, .euro-icon, .pound-icon, .pln-icon {
+    display: none;
+}
+.dollar-icon-show, .euro-icon-show, .pound-icon-show, .pln-icon-show {
+    display: inline-block;
+}
+
+/*=======================================
+    CURRENT VALUE STYLES
+==================================================*/

@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Trener Cinkciarza</title>
     <!-- SIMPLE LINE ICONS STYLE CSS -->
-    <link href="../app/bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet">
     <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="../app/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
     <!-- CUSTOM STYLE CSS -->
     <link href="styles/main.css" rel="stylesheet"/>
 
@@ -17,20 +17,35 @@
     <h1>Trener Cinkciarza</h1>
 </div>
 
-<!-- BUY/SALE CURRENCY SECTION -->
+
 <div class="container buy-sale">
     <div class="row">
-
+        <!-- BUY/SALE CURRENCY SECTION -->
         <div class="col-md-6">
 
             <div class="form-group row start-value">
-                <label for="start-number-input" class="col-xs-3 col-form-label">Dostepne srodki</label>
+                <label for="start-number-input" class="col-xs-4 col-form-label">Kwota startowa</label>
                 <div class="col-xs-3 col-md-offset-3">
-                    <input class="form-control" type="number" value="42" id="start-number-input">
+                    <input class="form-control" type="number" value="100" id="start-number-input">
                 </div>
-                <!--<i class="fa fa-usd fa-2x" aria-hidden="true"></i>-->
                 <p class="pln">PLN</p>
             </div>
+
+            <div class="form-group row current-value">
+                <label for="summary-number" class="col-xs-4 col-form-label">Aktualne srodki</label>
+                <div class="col-xs-3 col-md-offset-3">
+                    <input class="form-control" type="number" disabled id="summary-number">
+                </div>
+                <div style="text-align: right;">
+                    <i id="dollar" class="fa fa-usd fa-2x dollar-icon" aria-hidden="true"></i>
+                    <i id="euro" class="fa fa-eur fa-2x euro-icon" aria-hidden="true"></i>
+                    <i id="pound" class="fa fa-gbp fa-2x pound-icon" aria-hidden="true"></i>
+                    <p id="pln" class="pln-icon" style="font-size:20px;">PLN</p>
+                </div>
+
+            </div>
+
+            <button class="btn btn-primary">Reset</button>
 
             <div class="row second-title">
                 <div class="col-md-4">
@@ -49,10 +64,12 @@
                     <h4>USD</h4>
                 </div>
                 <div class="col-md-3">
-                    <button class='btn btn-success btn-buy-usd'>Kup</button>
+                    <span>Kurs 4.1707</span>
+                    <button class='btn btn-success btn-buy-usd' disabled>Kup</button>
                 </div>
                 <div class="col-md-3 col-md-offset-1">
-                    <button class="btn btn-primary">Sprzedaj</button>
+                    <span>Kurs 4.1854</span>
+                    <button class="btn btn-primary btn-sell-usd">Sprzedaj</button>
                 </div>
             </div>
 
@@ -61,10 +78,13 @@
                     <h4>EUR</h4>
                 </div>
                 <div class="col-md-3">
-                    <button class='btn btn-success'>Kup</button>
+                    <span>Kurs 4.4302</span>
+                    <button class='btn btn-success btn-buy-eur' disabled>Kup</button>
+
                 </div>
                 <div class="col-md-3 col-md-offset-1">
-                    <button class="btn btn-primary">Sprzedaj</button>
+                    <span>Kurs 4.4464</span>
+                    <button class="btn btn-primary  btn-sell-eur">Sprzedaj</button>
                 </div>
             </div>
 
@@ -73,20 +93,22 @@
                     <h4>GBP</h4>
                 </div>
                 <div class="col-md-3">
-                    <button class='btn btn-success'>Kup</button>
+                    <span>Kurs 5.2196</span>
+                    <button class='btn btn-success btn-buy-gbp' disabled>Kup</button>
                 </div>
                 <div class="col-md-3 col-md-offset-1">
-                    <button class="btn btn-primary">Sprzedaj</button>
+                    <span>Kurs 5.2041</span>
+                    <button class="btn btn-primary btn-sell-gbp">Sprzedaj</button>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-6">
 
         </div>
 
     </div>
 </div>
 
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="custom.js"></script>
 </body>
 </html>

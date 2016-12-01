@@ -2,13 +2,58 @@
 
 $(document).ready(function () {
 
-    var plnToUsd = 4.1854;
-    var plnToEur = 4.4464;
-    var plnToGbp = 5.2196;
+    var plnToUsd = 0;
+    var plnToEur = 0;
+    var plnToGbp = 0;
 
-    var usdToPln = 4.1707;
-    var eurToPln = 4.4302;
-    var gbpToPln = 5.2041;
+    var usdToPln = 0;
+    var eurToPln = 0;
+    var gbpToPln = 0;
+
+
+
+    /*=======================================
+     AJAX REQUEST SCRIPTS
+     ==================================================*/
+    $(function() {
+        $.ajax({
+            type: 'GET',
+            url: 'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/?format=json',
+            success: function(data) {
+                console.log('success', data);
+                plnToUsd = data.rates[0].ask;
+                $('#plnToUsd').text(plnToUsd);
+                usdToPln = data.rates[0].bid;
+                $('#usdToPln').text(usdToPln);
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: 'http://api.nbp.pl/api/exchangerates/rates/c/eur/today/?format=json',
+            success: function(data) {
+                plnToEur = data.rates[0].ask;
+                $('#plnToEur').text(plnToEur);
+                eurToPln = data.rates[0].bid;
+                $('#eurToPln').text(eurToPln);
+            }
+        });
+        $.ajax({
+            type: 'GET',
+            url: 'http://api.nbp.pl/api/exchangerates/rates/c/gbp/today/?format=json',
+            success: function(data) {
+                plnToGbp = data.rates[0].ask;
+                $('#plnToGbp').text(plnToGbp);
+                gbpToPln = data.rates[0].bid;
+                $('#gbpToPln').text(gbpToPln);
+
+            }
+        });
+
+
+    });
+
+
+
 
     /*=======================================
      USD BUTTONS SCRIPTS
@@ -57,9 +102,11 @@ $(document).ready(function () {
     /*=======================================
      EURO BUTTONS SCRIPTS
      ==================================================*/
-    $('.btn-sell-eur').on('click', function () {
+    $('.btn-sell-eur').on('click', function (event) {
+        event.preventDefault();
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
+
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue / plnToEur);

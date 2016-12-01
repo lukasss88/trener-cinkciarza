@@ -24,7 +24,6 @@
     padding: 20px;
 }
 .second-title {
-    margin-top: 40px;
     margin-bottom: 15px;
 }
 .currency-state {
@@ -55,5 +54,22 @@ span {
 }
 
 /*=======================================
-    CURRENT VALUE STYLES
+    RESET BUTTON STYLES
 ==================================================*/
+.reset.form-control {
+    margin-top: 10px;
+}
+/*=======================================
+    TABLE STYLES
+==================================================*/
+table {
+    width: 70%;
+    height: 200px;
+    margin: 0 auto;
+}
+td {
+    text-align: center;
+}
+tr:nth-child(1) {
+    font-weight: bold;
+}

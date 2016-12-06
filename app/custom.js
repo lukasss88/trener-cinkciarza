@@ -46,18 +46,14 @@ $(document).ready(function () {
                 $('#plnToGbp').text(plnToGbp);
                 gbpToPln = data.rates[0].bid;
                 $('#gbpToPln').text(gbpToPln);
-
             }
         });
     });
 
 
-
-
     /*=======================================
      USD BUTTONS SCRIPTS
      ==================================================*/
-
     $('.btn-sell-usd').on('click', function (event) {
         event.preventDefault();
         var startValue = +$('#start-number-input').val();
@@ -65,13 +61,16 @@ $(document).ready(function () {
         numTransaction++;
 
         if( $('#summary-number').val() ) {
-            $('#summary-number').val(summaryValue / plnToUsd);
-            var data = JSON.parse(localStorage.getItem("todoData"));
+            var value1 = summaryValue / plnToUsd;
+            value1 = value1.toFixed(2);
+            $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na dolary',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '$</p>');
         }
         else {
-            $('#summary-number').val(startValue / plnToUsd);
+            var value2 = startValue / plnToUsd;
+            value2 = value2.toFixed(2);
+            $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono złotówki na dolary',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + '$</p>');
         }
@@ -90,12 +89,16 @@ $(document).ready(function () {
         numTransaction++;
 
         if( $('#summary-number').val() ) {
-            $('#summary-number').val(summaryValue * usdToPln);
+            var value1 = summaryValue * usdToPln;
+            value1 = value1.toFixed(2);
+            $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono dolary na złotówki',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '$ za ' + ($('#summary-number').val()) + 'PLN</p>');
         }
         else {
-            $('#summary-number').val(startValue * usdToPln);
+            var value2 = startValue * usdToPln;
+            value2 = value2.toFixed(2);
+            $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono dolary na złotówki',JSON.stringify($('#summary-number').val()));
         }
 
@@ -118,12 +121,16 @@ $(document).ready(function () {
         numTransaction++;
 
         if( $('#summary-number').val() ) {
-            $('#summary-number').val(summaryValue / plnToEur);
+            var value1 = summaryValue / plnToEur;
+            value1 = value1.toFixed(2);
+            $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na euro',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '€</p>');
         }
         else {
-            $('#summary-number').val(startValue / plnToEur);
+            var value2 = startValue / plnToEur;
+            value2 = value2.toFixed(2);
+            $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono złotówki na euro',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + '€</p>');
         }
@@ -142,12 +149,16 @@ $(document).ready(function () {
         numTransaction++;
 
         if( $('#summary-number').val() ) {
-            $('#summary-number').val(summaryValue * eurToPln);
+            var value1 = summaryValue * eurToPln;
+            value1 = value1.toFixed(2);
+            $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono euro na złotówki',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '€ za ' + ($('#summary-number').val()) + 'PLN</p>');
         }
         else {
-            $('#summary-number').val(startValue * eurToPln);
+            var value2 = startValue * eurToPln;
+            value2 = value2.toFixed(2);
+            $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono euro na złotówki',JSON.stringify($('#summary-number').val()));
         }
 
@@ -169,12 +180,16 @@ $(document).ready(function () {
         numTransaction++;
 
         if( $('#summary-number').val() ) {
-            $('#summary-number').val(summaryValue / plnToGbp);
+            var value1 = summaryValue / plnToGbp;
+            value1 = value1.toFixed(2);
+            $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na funty',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '£</p>');
         }
         else {
-            $('#summary-number').val(startValue / plnToGbp);
+            var value2 = startValue / plnToGbp;
+            value2 = value2.toFixed(2);
+            $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono złotówki na funty',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + '£</p>');
         }
@@ -193,12 +208,16 @@ $(document).ready(function () {
         numTransaction++;
 
         if( $('#summary-number').val() ) {
-            $('#summary-number').val(summaryValue * gbpToPln);
+            var value1 = summaryValue * gbpToPln;
+            value1 = value1.toFixed(2);
+            $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono funty na złotówki',JSON.stringify($('#summary-number').val()));
             $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '£ za ' + ($('#summary-number').val()) + 'PLN</p>');
         }
         else {
-            $('#summary-number').val(startValue * gbpToPln);
+            var value2 = startValue * gbpToPln;
+            value2 = value2.toFixed(2);
+            $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono funty na złotówki',JSON.stringify($('#summary-number').val()));
         }
 
@@ -234,7 +253,5 @@ $(document).ready(function () {
     $("#start-number-input").on("change", function(){
         $('.reset').addClass('ui-btn-active');
     });
-
-
 
 });

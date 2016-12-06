@@ -35,7 +35,7 @@
                 <label for="summary-number" class="col-xs-4 col-form-label">Aktualne srodki</label>
                 <div class="col-xs-3 col-md-offset-3">
                     <form action="">
-                    <input class="form-control" type="number" disabled id="summary-number">
+                    <input class="form-control" step="0.01" type="number" disabled id="summary-number">
                     <input class="reset form-control" type="reset">
                     </form>
                 </div>
@@ -117,27 +117,31 @@
 
                 <tr>
                     <td>USD</td>
-                    <td id="plnToUsd"></td>
                     <td id="usdToPln"></td>
+                    <td id="plnToUsd"></td>
                 </tr>
 
                 <tr>
                     <td>EUR</td>
-                    <td id="plnToEur"></td>
                     <td id="eurToPln"></td>
+                    <td id="plnToEur"></td>
                 </tr>
 
                 <tr>
                     <td>GBP</td>
-                    <td id="plnToGbp"></td>
                     <td id="gbpToPln"></td>
+                    <td id="plnToGbp"></td>
                 </tr>
             </table>
+
+            <!-- NUMBER OF SALES TRANSACTION SECTION -->
+            <div class="row well transaction-box">
+                <h2>Transakcje finansowe</h2>
+                <div class="transaction"></div>
+            </div>
+
         </div>
-
     </div>
-
-
 </div>
 
 

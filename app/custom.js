@@ -10,6 +10,7 @@ $(document).ready(function () {
     var eurToPln = 0;
     var gbpToPln = 0;
 
+    var numTransaction = 0;
 
 
     /*=======================================
@@ -48,8 +49,6 @@ $(document).ready(function () {
 
             }
         });
-
-
     });
 
 
@@ -63,12 +62,18 @@ $(document).ready(function () {
         event.preventDefault();
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
+        numTransaction++;
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue / plnToUsd);
+            var data = JSON.parse(localStorage.getItem("todoData"));
+            localStorage.setItem('Zamieniono złotówki na dolary',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '$</p>');
         }
         else {
             $('#summary-number').val(startValue / plnToUsd);
+            localStorage.setItem('Zamieniono złotówki na dolary',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + '$</p>');
         }
 
         $('.btn-sell-usd').attr("disabled", true);
@@ -77,17 +82,21 @@ $(document).ready(function () {
         $('.btn-buy-usd').removeAttr("disabled");
         $('#pln').removeClass('pln-icon-show');
         $('#dollar').addClass('dollar-icon-show');
-
     });
+
     $('.btn-buy-usd').on('click', function () {
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
+        numTransaction++;
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue * usdToPln);
+            localStorage.setItem('Zamieniono dolary na złotówki',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '$ za ' + ($('#summary-number').val()) + 'PLN</p>');
         }
         else {
             $('#summary-number').val(startValue * usdToPln);
+            localStorage.setItem('Zamieniono dolary na złotówki',JSON.stringify($('#summary-number').val()));
         }
 
         $('.btn-buy-usd').attr("disabled", true);
@@ -106,13 +115,17 @@ $(document).ready(function () {
         event.preventDefault();
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
-
+        numTransaction++;
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue / plnToEur);
+            localStorage.setItem('Zamieniono złotówki na euro',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '€</p>');
         }
         else {
             $('#summary-number').val(startValue / plnToEur);
+            localStorage.setItem('Zamieniono złotówki na euro',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + '€</p>');
         }
 
         $('.btn-sell-eur').attr("disabled", true);
@@ -122,15 +135,20 @@ $(document).ready(function () {
         $('#pln').removeClass('pln-icon-show');
         $('#euro').addClass('euro-icon-show');
     });
+
     $('.btn-buy-eur').on('click', function () {
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
+        numTransaction++;
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue * eurToPln);
+            localStorage.setItem('Zamieniono euro na złotówki',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '€ za ' + ($('#summary-number').val()) + 'PLN</p>');
         }
         else {
             $('#summary-number').val(startValue * eurToPln);
+            localStorage.setItem('Zamieniono euro na złotówki',JSON.stringify($('#summary-number').val()));
         }
 
         $('.btn-buy-eur').attr("disabled", true);
@@ -148,12 +166,17 @@ $(document).ready(function () {
     $('.btn-sell-gbp').on('click', function () {
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
+        numTransaction++;
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue / plnToGbp);
+            localStorage.setItem('Zamieniono złotówki na funty',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '£</p>');
         }
         else {
             $('#summary-number').val(startValue / plnToGbp);
+            localStorage.setItem('Zamieniono złotówki na funty',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + '£</p>');
         }
 
         $('.btn-sell-gbp').attr("disabled", true);
@@ -163,15 +186,20 @@ $(document).ready(function () {
         $('#pln').removeClass('pln-icon-show');
         $('#pound').addClass('pound-icon-show');
     });
+
     $('.btn-buy-gbp').on('click', function () {
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
+        numTransaction++;
 
         if( $('#summary-number').val() ) {
             $('#summary-number').val(summaryValue * gbpToPln);
+            localStorage.setItem('Zamieniono funty na złotówki',JSON.stringify($('#summary-number').val()));
+            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '£ za ' + ($('#summary-number').val()) + 'PLN</p>');
         }
         else {
             $('#summary-number').val(startValue * gbpToPln);
+            localStorage.setItem('Zamieniono funty na złotówki',JSON.stringify($('#summary-number').val()));
         }
 
         $('.btn-buy-gbp').attr("disabled", true);
@@ -198,6 +226,15 @@ $(document).ready(function () {
         $('#dollar').removeClass('dollar-icon-show');
         $('#euro').removeClass('euro-icon-show');
         $('#pound').removeClass('pound-icon-show');
-    })
+
+        $('.transaction').empty();
+        numTransaction = 0;
+    });
+
+    $("#start-number-input").on("change", function(){
+        $('.reset').addClass('ui-btn-active');
+    });
+
+
 
 });

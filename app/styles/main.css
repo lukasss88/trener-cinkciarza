@@ -73,3 +73,13 @@ td {
 tr:nth-child(1) {
     font-weight: bold;
 }
+
+/*=======================================
+    TRANSACTION BOX STYLES
+==================================================*/
+.transaction-box {
+    margin: 30px 0 0 83px;
+}
+.transaction-box h2 {
+    padding-bottom: 20px;
+}

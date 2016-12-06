@@ -21,7 +21,6 @@ $(document).ready(function () {
             type: 'GET',
             url: 'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/?format=json',
             success: function(data) {
-                console.log('success', data);
                 plnToUsd = data.rates[0].ask;
                 $('#plnToUsd').text(plnToUsd);
                 usdToPln = data.rates[0].bid;
@@ -65,7 +64,7 @@ $(document).ready(function () {
             value1 = value1.toFixed(2);
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na dolary',JSON.stringify($('#summary-number').val()));
-            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '$</p>');
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + (value1 * plnToUsd).toFixed(2) + 'PLN za ' + ($('#summary-number').val()) + '$</p>');
         }
         else {
             var value2 = startValue / plnToUsd;
@@ -93,7 +92,7 @@ $(document).ready(function () {
             value1 = value1.toFixed(2);
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono dolary na złotówki',JSON.stringify($('#summary-number').val()));
-            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '$ za ' + ($('#summary-number').val()) + 'PLN</p>');
+            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + 'PLN za ' + (value1 / usdToPln).toFixed(2)  + '$</p>');
         }
         else {
             var value2 = startValue * usdToPln;
@@ -125,7 +124,7 @@ $(document).ready(function () {
             value1 = value1.toFixed(2);
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na euro',JSON.stringify($('#summary-number').val()));
-            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '€</p>');
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + (value1 * plnToEur).toFixed(2) + 'PLN za ' + ($('#summary-number').val()) + '€</p>');
         }
         else {
             var value2 = startValue / plnToEur;
@@ -153,7 +152,7 @@ $(document).ready(function () {
             value1 = value1.toFixed(2);
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono euro na złotówki',JSON.stringify($('#summary-number').val()));
-            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '€ za ' + ($('#summary-number').val()) + 'PLN</p>');
+            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + 'PLN za ' + (value1 / eurToPln).toFixed(2) + '€</p>');
         }
         else {
             var value2 = startValue * eurToPln;
@@ -184,7 +183,7 @@ $(document).ready(function () {
             value1 = value1.toFixed(2);
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na funty',JSON.stringify($('#summary-number').val()));
-            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + ($('#summary-number').val()) + 'PLN za ' + ($('#summary-number').val()) + '£</p>');
+            $('.transaction').append('<p>'+numTransaction + '. Sprzedano ' + (value1 * plnToGbp).toFixed(2) + 'PLN za ' + ($('#summary-number').val()) + '£</p>');
         }
         else {
             var value2 = startValue / plnToGbp;
@@ -212,7 +211,7 @@ $(document).ready(function () {
             value1 = value1.toFixed(2);
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono funty na złotówki',JSON.stringify($('#summary-number').val()));
-            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + '£ za ' + ($('#summary-number').val()) + 'PLN</p>');
+            $('.transaction').append('<p>'+numTransaction + '. Kupiono ' + ($('#summary-number').val()) + 'PLN za ' + (value1 / gbpToPln).toFixed(2) + '£</p>');
         }
         else {
             var value2 = startValue * gbpToPln;

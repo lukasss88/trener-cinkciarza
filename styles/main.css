@@ -1,0 +1,79 @@
+/*=======================================
+    GENERAL STYLES
+==================================================*/
+.container h1 {
+    text-align: center;
+}
+.container {
+    margin-bottom: 80px;
+}
+/*=======================================
+    BUY/SALES CURRENCY STYLES
+==================================================*/
+.start-value {
+    border: 1px solid gainsboro;
+}
+.pln {
+    font-size: 20px;
+    text-align: right;
+}
+.form-group {
+    padding: 20px;
+}
+.second-title {
+    margin-bottom: 15px;
+}
+.currency-state {
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #b4b4b4;
+    border-radius: 6px;
+}
+input {
+    text-align: center;
+}
+.form-control {
+    width: 172px;
+}
+button {
+    width: 100%;
+}
+span {
+    display: block;
+    text-align: center;
+}
+.dollar-icon, .euro-icon, .pound-icon, .pln-icon {
+    display: none;
+}
+.dollar-icon-show, .euro-icon-show, .pound-icon-show, .pln-icon-show {
+    display: inline-block;
+}
+/*=======================================
+    RESET BUTTON STYLES
+==================================================*/
+.reset.form-control {
+    margin-top: 10px;
+}
+/*=======================================
+    TABLE STYLES
+==================================================*/
+table {
+    width: 70%;
+    height: 200px;
+    margin: 0 auto;
+}
+td {
+    text-align: center;
+}
+tr:nth-child(1) {
+    font-weight: bold;
+}
+/*=======================================
+    TRANSACTION BOX STYLES
+==================================================*/
+.transaction-box {
+    margin: 30px 0 0 83px;
+}
+.transaction-box h2 {
+    padding-bottom: 20px;
+}

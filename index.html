@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Trener Cinkciarza</title>
+    <!-- SIMPLE LINE ICONS STYLE CSS -->
+    <link href="bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <!-- CUSTOM STYLE CSS -->
+    <link href="styles/main.css" rel="stylesheet"/>
+
+</head>
+<body>
+<div class="container">
+    <h1>Trener Cinkciarza</h1>
+</div>
+
+
+<div class="container buy-sale">
+    <div class="row">
+        <!-- BUY/SALE CURRENCY SECTION -->
+        <div class="col-md-6">
+
+            <div class="form-group row start-value">
+                <label for="start-number-input" class="col-xs-4 col-form-label">Kwota startowa</label>
+                <div class="col-xs-3 col-md-offset-3">
+                    <input class="form-control" type="number" value="100" id="start-number-input">
+                </div>
+                <p class="pln">PLN</p>
+            </div>
+
+            <div class="form-group row current-value">
+                <label for="summary-number" class="col-xs-4 col-form-label">Aktualne srodki</label>
+                <div class="col-xs-3 col-md-offset-3">
+                    <form action="">
+                    <input class="form-control" step="0.01" type="number" disabled id="summary-number">
+                    <input class="reset form-control" type="reset">
+                    </form>
+                </div>
+                <div style="text-align: right;">
+                    <i id="dollar" class="fa fa-usd fa-2x dollar-icon" aria-hidden="true"></i>
+                    <i id="euro" class="fa fa-eur fa-2x euro-icon" aria-hidden="true"></i>
+                    <i id="pound" class="fa fa-gbp fa-2x pound-icon" aria-hidden="true"></i>
+                    <p id="pln" class="pln-icon" style="font-size:20px;">PLN</p>
+                </div>
+
+            </div>
+
+
+
+            <div class="row second-title">
+                <div class="col-md-4">
+                    <h3>Waluta</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>Kupno</h3>
+                </div>
+                <div class="col-md-4">
+                    <h3>Sprzedaż</h3>
+                </div>
+            </div>
+
+            <div class="row currency-state">
+                <div class="col-md-4">
+                    <h4>USD</h4>
+                </div>
+                <div class="col-md-3">
+
+                    <button class='btn btn-success btn-buy-usd' disabled>Kup</button>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+
+                    <button class="btn btn-primary btn-sell-usd">Sprzedaj</button>
+                </div>
+            </div>
+
+            <div class="row currency-state">
+                <div class="col-md-4">
+                    <h4>EUR</h4>
+                </div>
+                <div class="col-md-3">
+
+                    <button class='btn btn-success btn-buy-eur' disabled>Kup</button>
+
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+
+                    <button class="btn btn-primary  btn-sell-eur">Sprzedaj</button>
+                </div>
+            </div>
+
+            <div class="row currency-state">
+                <div class="col-md-4">
+                    <h4>GBP</h4>
+                </div>
+                <div class="col-md-3">
+
+                    <button class='btn btn-success btn-buy-gbp' disabled>Kup</button>
+                </div>
+                <div class="col-md-3 col-md-offset-1">
+
+                    <button class="btn btn-primary btn-sell-gbp">Sprzedaj</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6" >
+            <table class="table-bordered table-responsive">
+                <tr>
+                    <td>Waluta</td>
+                    <td>Kupno</td>
+                    <td>Sprzedaz</td>
+                </tr>
+
+                <tr>
+                    <td>USD</td>
+                    <td id="usdToPln"></td>
+                    <td id="plnToUsd"></td>
+                </tr>
+
+                <tr>
+                    <td>EUR</td>
+                    <td id="eurToPln"></td>
+                    <td id="plnToEur"></td>
+                </tr>
+
+                <tr>
+                    <td>GBP</td>
+                    <td id="gbpToPln"></td>
+                    <td id="plnToGbp"></td>
+                </tr>
+            </table>
+
+            <!-- NUMBER OF SALES TRANSACTION SECTION -->
+            <div class="row well transaction-box">
+                <h2>Transakcje finansowe</h2>
+                <div class="transaction"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="custom.js"></script>
+</body>
+</html>

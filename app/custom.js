@@ -12,7 +12,6 @@ $(document).ready(function () {
 
     var numTransaction = 0;
 
-
     /*=======================================
      AJAX REQUEST SCRIPTS
      ==================================================*/

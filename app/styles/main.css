@@ -7,8 +7,6 @@
 .container {
     margin-bottom: 80px;
 }
-
-
 /*=======================================
     BUY/SALES CURRENCY STYLES
 ==================================================*/
@@ -19,7 +17,6 @@
     font-size: 20px;
     text-align: right;
 }
-
 .form-group {
     padding: 20px;
 }
@@ -45,14 +42,12 @@ span {
     display: block;
     text-align: center;
 }
-
 .dollar-icon, .euro-icon, .pound-icon, .pln-icon {
     display: none;
 }
 .dollar-icon-show, .euro-icon-show, .pound-icon-show, .pln-icon-show {
     display: inline-block;
 }
-
 /*=======================================
     RESET BUTTON STYLES
 ==================================================*/
@@ -73,7 +68,6 @@ td {
 tr:nth-child(1) {
     font-weight: bold;
 }
-
 /*=======================================
     TRANSACTION BOX STYLES
 ==================================================*/

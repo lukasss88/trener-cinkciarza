@@ -75,10 +75,11 @@ $(document).ready(function () {
     $('.btn-sell').on('click', function () {
 
 
-        var currency = $('button').attr('id');
+        var currency = $( "#select-currency option:selected" ).text();
+        console.log($( "#select-currency option:selected" ).text());
 
 
-        console.log(currency);
+
                 $.ajax({
                     type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/rates/c/' + currency + '/today/?format=json', success: function (data)
                     {
@@ -120,10 +121,11 @@ $(document).ready(function () {
 
     $('.btn-buy').on('click', function () {
 
-        var currency = $('.btn-buy').attr('id');
+        var currency = $( "#select-currency option:selected" ).text();
+        console.log($( "#select-currency option:selected" ).text());
 
 
-        console.log(currency);
+
         $.ajax({
             type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/rates/c/' + currency + '/today/?format=json', success: function (data)
             {
@@ -158,13 +160,14 @@ $(document).ready(function () {
         $('#pln').addClass('pln-icon-show');
     });
 
-    // var choose = $('#bu');
-    // var selectedOptio = choose.find('btn-buy');
-    // $('#buyCurrency').html(getCurrency(selectedOptio.val()));
+    // 'use strict';
+    // var choose = $('#select');
+    // var selectedOptio = choose.find('option:selected');
+    // $('#zmienna').html(getCurrency(selectedOptio.val()));
     // choose.change(function ()
     // {
     //     var selectedOption = $('#select option:selected');
-    //     $('#buyCurrency').html(getCurrency(selectedOption.val()));
+    //     $('#zmienna').html(getCurrency(selectedOption.val()));
     // });
     //
     // function getCurrency(currency)
@@ -194,8 +197,6 @@ $(document).ready(function () {
     //     });
     //
     //     return returnvalue;
-    //
-    // }
 
 
     // /*=======================================

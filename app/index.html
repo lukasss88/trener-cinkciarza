@@ -49,7 +49,6 @@
             </div>
 
 
-
             <div class="row second-title">
                 <div class="col-md-4">
                     <h3>Waluta</h3>
@@ -62,46 +61,63 @@
                 </div>
             </div>
 
-            <div class="row currency-state">
+
+            <h3>Wymiana walut</h3>
+            <div class="form-group row">
+            <form action="">
+                <div class="col-md-4">
+                    <label for="select-currency">Wybierz walute</label>
+                </div>
+                <div class="col-md-4">
+                    <select id="select-currency">
+                        <option value="usd1">usd1</option>
+                        <option value="eur1">eur1</option>
+                        <option value="gbp1">gbp1</option>
+                    </select>
+                </div>
+            </form>
+            </div>
+
+
+            <div class="row currency-state" id="usd1">
                 <div class="col-md-4">
                     <h4>USD</h4>
                 </div>
                 <div class="col-md-3">
 
-                    <button class='btn btn-success btn-buy-usd' disabled>Kup</button>
+                    <button id="usd" class='btn btn-success btn-buy-usd usd btn-buy' disabled>Kup</button>
                 </div>
                 <div class="col-md-3 col-md-offset-1">
 
-                    <button class="btn btn-primary btn-sell-usd">Sprzedaj</button>
+                    <button id="usd" class="btn btn-primary btn-sell-usd btn-sell usd">Sprzedaj</button>
                 </div>
             </div>
 
-            <div class="row currency-state">
+            <div class="row currency-state" id="eur1">
                 <div class="col-md-4">
                     <h4>EUR</h4>
                 </div>
                 <div class="col-md-3">
 
-                    <button class='btn btn-success btn-buy-eur' disabled>Kup</button>
+                    <button id="eur" class='btn btn-success btn-buy-eur eur btn-buy'  disabled>Kup</button>
 
                 </div>
                 <div class="col-md-3 col-md-offset-1">
 
-                    <button class="btn btn-primary  btn-sell-eur">Sprzedaj</button>
+                    <button id="eur" class="btn btn-primary btn-sell-eur btn-sell eur">Sprzedaj</button>
                 </div>
             </div>
 
-            <div class="row currency-state">
+            <div class="row currency-state" id="gbp1">
                 <div class="col-md-4">
                     <h4>GBP</h4>
                 </div>
                 <div class="col-md-3">
 
-                    <button class='btn btn-success btn-buy-gbp' disabled>Kup</button>
+                    <button id="gbp" class='btn btn-success btn-buy-gbp gbp btn-buy' disabled>Kup</button>
                 </div>
                 <div class="col-md-3 col-md-offset-1">
-
-                    <button class="btn btn-primary btn-sell-gbp">Sprzedaj</button>
+                    <button id="gbp" class="btn btn-primary btn-sell-gbp btn-sell gbp">Sprzedaj</button>
                 </div>
             </div>
 

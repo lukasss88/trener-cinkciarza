@@ -40,8 +40,10 @@ button {
     width: 100%;
 }
 span {
-    display: block;
-    text-align: center;
+    position: absolute;
+    margin-left: -15px;
+    font-size: 20px;
+
 }
 .dollar-icon, .euro-icon, .pound-icon, .pln-icon {
     display: none;

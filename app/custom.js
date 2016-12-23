@@ -10,12 +10,12 @@ $(document).ready(function ()
         usd: '$', eur: '€' , gbp: '£'
     };
 
-    $.ajax({
-        type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/tables/c/today/', succes: function (data)
-        {
-            $('.table-currency').html(data)
-        }
-    });
+    // $.ajax({
+    //     type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/tables/c/today/', success: function (data)
+    //     {
+    //         $('.table-currency').append(data)
+    //     }
+    // });
 
 
     $('#select-currency').change(function ()
@@ -34,11 +34,11 @@ $(document).ready(function ()
         });
     });
 
-
-
+    /*=======================================
+     SELL BUTTON SCRIPTS
+     ==================================================*/
     $('.btn-sell').on('click', function ()
     {
-
         event.preventDefault();
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
@@ -62,12 +62,16 @@ $(document).ready(function ()
         console.log(sellCurrency);
         $('.btn-sell').attr("disabled", true);
         $('.btn-buy').removeAttr("disabled");
+
+
+        $('#currency-icon').html('<span></span>').append('<span>' + activeIcon + '</span>')
     });
 
-
+    /*=======================================
+     BUY BUTTON SCRIPTS
+     ==================================================*/
     $('.btn-buy').on('click', function ()
     {
-
         var startValue = +$('#start-number-input').val();
         var summaryValue = +$('#summary-number').val();
         numTransaction++;
@@ -88,6 +92,8 @@ $(document).ready(function ()
         console.log(buyCurrency);
         $('.btn-buy').attr("disabled", true);
         $('.btn-sell').removeAttr("disabled");
+
+        $('#currency-icon').html('<span></span>').append('<span>' + 'PLN' + '</span>')
     });
 
     /*=======================================
@@ -108,7 +114,9 @@ $(document).ready(function ()
         $('.reset').addClass('ui-btn-active');
     });
 
-
+    /*=======================================
+     SHOW/HIDE CURRENCY-STATE BOX SCRIPTS
+     ==================================================*/
     $(function ()
     {
         $('#select-currency').change(function ()
@@ -117,6 +125,13 @@ $(document).ready(function ()
             $('#' + $(this).val()).show();
         });
     });
+
+    /*=======================================
+     SHOW/HIDE CURRENCY-ICON SCRIPTS
+     ==================================================*/
+
+
+
 });
 
 

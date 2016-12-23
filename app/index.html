@@ -17,7 +17,6 @@
     <h1>Trener Cinkciarza</h1>
 </div>
 
-
 <div class='container buy-sale'>
     <div class='row'>
         <!-- BUY/SALE CURRENCY SECTION -->
@@ -48,20 +47,6 @@
 
             </div>
 
-
-            <div class='row second-title'>
-                <div class='col-md-4'>
-                    <h3>Waluta</h3>
-                </div>
-                <div class='col-md-4'>
-                    <h3>Kupno</h3>
-                </div>
-                <div class='col-md-4'>
-                    <h3>Sprzedaż</h3>
-                </div>
-            </div>
-
-
             <h3>Wymiana walut</h3>
             <div class='form-group row'>
             <form action=''>
@@ -69,7 +54,7 @@
                     <label for='select-currency'>Wybierz walute</label>
                 </div>
                 <div class='col-md-4'>
-                    <select id='select-currency'>
+                    <select id='select-currency' class="form-control">
                         <option value='usd1'>usd</option>
                         <option value='eur1'>eur</option>
                         <option value='gbp1'>gbp</option>
@@ -78,18 +63,17 @@
             </form>
             </div>
 
-
             <div class='row currency-state' id='usd1'>
                 <div class='col-md-4'>
                     <h4>USD</h4>
                 </div>
                 <div class='col-md-3'>
 
-                    <button class='btn btn-success btn-buy-usd usd btn-buy'>Kup</button>
+                    <button class='btn btn-success btn-buy-usd usd btn-buy' disabled>Kup</button>
                 </div>
                 <div class='col-md-3 col-md-offset-1'>
 
-                    <button class='btn btn-primary btn-sell-usd btn-sell usd'>Sprzedaj</button>
+                    <button class='btn btn-primary btn-sell-usd btn-sell'>Sprzedaj</button>
                 </div>
             </div>
 
@@ -98,13 +82,11 @@
                     <h4>EUR</h4>
                 </div>
                 <div class='col-md-3'>
-
-                    <button class='btn btn-success btn-buy-eur eur btn-buy'>Kup</button>
+                    <button class='btn btn-success btn-buy-eur eur btn-buy' disabled>Kup</button>
 
                 </div>
                 <div class='col-md-3 col-md-offset-1'>
-
-                    <button class='btn btn-primary btn-sell-eur btn-sell eur'>Sprzedaj</button>
+                    <button class='btn btn-primary btn-sell-eur btn-sell'>Sprzedaj</button>
                 </div>
             </div>
 
@@ -113,18 +95,16 @@
                     <h4>GBP</h4>
                 </div>
                 <div class='col-md-3'>
-
-                    <button class='btn btn-success btn-buy-gbp gbp btn-buy'>Kup</button>
+                    <button class='btn btn-success btn-buy-gbp gbp btn-buy' disabled>Kup</button>
                 </div>
                 <div class='col-md-3 col-md-offset-1'>
-                    <button class='btn btn-primary btn-sell-gbp btn-sell gbp'>Sprzedaj</button>
+                    <button class='btn btn-primary btn-sell-gbp btn-sell'>Sprzedaj</button>
                 </div>
             </div>
-
         </div>
 
         <div class='col-md-6' >
-            <table class='table-bordered table-responsive'>
+            <table class='table-bordered table-responsive table-currency'>
                 <tr>
                     <td>Waluta</td>
                     <td>Kupno</td>

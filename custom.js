@@ -15,7 +15,7 @@ $(document).ready(function ()
         activeIcon = iconCurrency[currency];
 
         $.ajax({
-            type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/rates/c/' + currency + '/today/?format=json', success: function (data)
+            type: 'GET', url: 'https://api.nbp.pl/api/exchangerates/rates/c/' + currency + '/today/?format=json', success: function (data)
             {
                 var object1 = {};
 
@@ -122,11 +122,11 @@ $(document).ready(function ()
     var numCurrency = 0;
 
     $.ajax({
-        type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/tables/c/?format=json', success: function (data)
+        type: 'GET', url: 'https://api.nbp.pl/api/exchangerates/tables/c/?format=json', success: function (data)
         {
             arrayCurrency = data["0"].rates;
             for (var i = 0; i < arrayCurrency.length; i++) {
-                $('.table-currency').append('<tr>' + '<td>' + arrayCurrency[numCurrency].code + '</td>' + '<td>' + arrayCurrency[numCurrency].ask + '</td>' + '<td>' + arrayCurrency[numCurrency].bid + '</td>')
+                $('.table-currency').append('<tr>' + '<td>' + arrayCurrency[numCurrency].code + '</td>' + '<td>' + arrayCurrency[numCurrency].ask + '</td>' + '<td>' + arrayCurrency[numCurrency].bid + '</td>' + '</tr>')
                 numCurrency++;
             }
         }

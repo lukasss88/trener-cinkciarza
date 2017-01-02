@@ -126,7 +126,7 @@ $(document).ready(function ()
         {
             arrayCurrency = data["0"].rates;
             for (var i = 0; i < arrayCurrency.length; i++) {
-                $('.table-currency').append('<tr>' + '<td>' + arrayCurrency[numCurrency].code + '</td>' + '<td>' + arrayCurrency[numCurrency].ask + '</td>' + '<td>' + arrayCurrency[numCurrency].bid + '</td>')
+                $('.table-currency').append('<tr>' + '<td>' + arrayCurrency[numCurrency].code + '</td>' + '<td>' + arrayCurrency[numCurrency].ask + '</td>' + '<td>' + arrayCurrency[numCurrency].bid + '</td>' + '</tr>')
                 numCurrency++;
             }
         }

@@ -8,8 +8,6 @@ $(document).ready(function ()
     var iconCurrency = {
         usd: '$', eur: '€', gbp: '£'
     };
-    var tableRates = [];
-
 
     $('#select-currency').change(function ()
     {
@@ -23,11 +21,6 @@ $(document).ready(function ()
 
                 sellCurrency = data.rates[0].ask;
                 buyCurrency = data.rates[0].bid;
-                object1.currency = currency;
-                object1.sell = sellCurrency;
-                object1.buy = buyCurrency;
-                tableRates.push(object1);
-                console.log(tableRates);
             }
         });
     });
@@ -121,19 +114,21 @@ $(document).ready(function ()
         });
     });
 
-
     /*=======================================
      TABLE OF CURRENCIES BOX SCRIPTS
      ==================================================*/
+    var arrayCurrency = [];
+    var currencyName;
+    var numCurrency = 0;
 
-        for (var i = 0; i < $('.table-currency').length; i++) {
-            $('td:nth-child(2)').append('<span>' + sellCurrency + '</span>');
-            $('td:nth-child(3)').append('<span>' + buyCurrency + '</span>')
+    $.ajax({
+        type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/tables/c/?format=json', success: function (data)
+        {
+            arrayCurrency = data["0"].rates;
+            for (var i = 0; i < arrayCurrency.length; i++) {
+                $('.table-currency').append('<tr>' + '<td>' + arrayCurrency[numCurrency].code + '</td>' + '<td>' + arrayCurrency[numCurrency].ask + '</td>' + '<td>' + arrayCurrency[numCurrency].bid + '</td>')
+                numCurrency++;
+            }
         }
-
-
-
+    });
 });
-
-
-

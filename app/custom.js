@@ -5,29 +5,20 @@ $(document).ready(function ()
     var sellCurrency = 0;
     var buyCurrency = 0;
     var activeIcon;
-
     var iconCurrency = {
-        usd: '$', eur: '€' , gbp: '£'
+        usd: '$', eur: '€', gbp: '£'
     };
-
-    // $.ajax({
-    //     type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/tables/c/today/', success: function (data)
-    //     {
-    //         $('.table-currency').append(data)
-    //     }
-    // });
-
 
     $('#select-currency').change(function ()
     {
         var currency = $("#select-currency option:selected").text();
-        console.log($("#select-currency option:selected").text());
         activeIcon = iconCurrency[currency];
-        console.log(activeIcon);
 
         $.ajax({
             type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/rates/c/' + currency + '/today/?format=json', success: function (data)
             {
+                var object1 = {};
+
                 sellCurrency = data.rates[0].ask;
                 buyCurrency = data.rates[0].bid;
             }
@@ -50,20 +41,19 @@ $(document).ready(function ()
             $('#summary-number').val(value1);
             localStorage.setItem('Zamieniono złotówki na ' + $("#select-currency option:selected").text(), JSON.stringify($('#summary-number').val()));
             $('.transaction').append(
-                    '<p>' + numTransaction + '. Sprzedano ' + (value1 * sellCurrency).toFixed(2) + 'PLN za ' + ($('#summary-number').val()) + activeIcon + '</p>');
+                    '<p>' + numTransaction + '. Sprzedano ' + (value1 * sellCurrency).toFixed(2) + 'PLN za ' + ($('#summary-number').val()) + activeIcon
+                    + '</p>');
         } else {
             var value2 = startValue / sellCurrency;
             value2 = value2.toFixed(2);
             $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono złotówki na ' + $("#select-currency option:selected").text(), JSON.stringify($('#summary-number').val()));
             $('.transaction').append(
-                    '<p>' + numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + activeIcon + '</p>');
+                    '<p>' + numTransaction + '. Sprzedano ' + ($('#start-number-input').val()) + 'PLN za ' + ($('#summary-number').val()) + activeIcon
+                    + '</p>');
         }
-        console.log(sellCurrency);
         $('.btn-sell').attr("disabled", true);
         $('.btn-buy').removeAttr("disabled");
-
-
         $('#currency-icon').html('<span></span>').append('<span>' + activeIcon + '</span>')
     });
 
@@ -89,10 +79,8 @@ $(document).ready(function ()
             $('#summary-number').val(value2);
             localStorage.setItem('Zamieniono dolary na ' + $("#select-currency option:selected").text(), JSON.stringify($('#summary-number').val()));
         }
-        console.log(buyCurrency);
         $('.btn-buy').attr("disabled", true);
         $('.btn-sell').removeAttr("disabled");
-
         $('#currency-icon').html('<span></span>').append('<span>' + 'PLN' + '</span>')
     });
 
@@ -127,12 +115,20 @@ $(document).ready(function ()
     });
 
     /*=======================================
-     SHOW/HIDE CURRENCY-ICON SCRIPTS
+     TABLE OF CURRENCIES BOX SCRIPTS
      ==================================================*/
+    var arrayCurrency = [];
+    var currencyName;
+    var numCurrency = 0;
 
-
-
+    $.ajax({
+        type: 'GET', url: 'http://api.nbp.pl/api/exchangerates/tables/c/?format=json', success: function (data)
+        {
+            arrayCurrency = data["0"].rates;
+            for (var i = 0; i < arrayCurrency.length; i++) {
+                $('.table-currency').append('<tr>' + '<td>' + arrayCurrency[numCurrency].code + '</td>' + '<td>' + arrayCurrency[numCurrency].ask + '</td>' + '<td>' + arrayCurrency[numCurrency].bid + '</td>')
+                numCurrency++;
+            }
+        }
+    });
 });
-
-
-

@@ -1,2 +1,4 @@
-.idea
+.idea/
 npm-debug.log
+node_modules/
+app/bower_components/
